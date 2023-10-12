@@ -1,0 +1,45 @@
+class Ordine:
+    def __init__(self, simbolo, prezzo, quantità, tipo_ordine):
+        self.simbolo = simbolo
+        self.prezzo = prezzo
+        self.quantità = quantità
+        self.tipo_ordine = tipo_ordine
+
+class Borsa:
+    def __init__(self):
+        self.ordini = []
+
+    def esegui_ordine(self, ordine):
+        if ordine.tipo_ordine == "acquisto":
+            self.esegui_ordine_di_acquisto(ordine)
+        elif ordine.tipo_ordine == "vendita":
+            self.esegui_ordine_di_vendita(ordine)
+
+    def esegui_ordine_di_acquisto(self, ordine):
+        ordini_corrispondenti = [o for o in self.ordini if o.simbolo == ordine.simbolo and o.tipo_ordine == "vendita"]
+        ordini_corrispondenti.sort(key=lambda o: o.prezzo)
+
+        for ordine_corrispondente in ordini_corrispondenti:
+            if ordine_corrispondente.prezzo <= ordine.prezzo and ordine_corrispondente.quantità >= ordine.quantità:
+                ordine_corrispondente.quantità -= ordine.quantità
+                ordine.quantità = 0
+                print(f"Acquisto di {ordine.quantità} azioni di {ordine.simbolo} a un prezzo di {ordine_corrispondente.prezzo}")
+                break
+            elif ordine_corrispondente.prezzo <= ordine.prezzo and ordine_corrispondente.quantità < ordine.quantità:
+                ordine.quantità -= ordine_corrispondente.quantità
+                ordine_corrispondente.quantità = 0
+                print(f"Acquisto di {ordine_corrispondente.quantità} azioni di {ordine.simbolo} a un prezzo di {ordine_corrispondente.prezzo}")
+                self.ordini.remove(ordine_corrispondente)
+                if ordine.quantità == 0:
+                    break
+
+    def esegui_ordine_di_vendita(self, ordine):
+        # Implementa la logica per l'esecuzione dell'ordine di vendita
+        pass
+
+# Esempio di utilizzo
+borsa = Borsa()
+ordine1 = Ordine("AAPL", 150, 10, "acquisto")
+ordine2 = Ordine("AAPL", 155, 5, "acquisto")
+borsa.esegui_ordine(ordine1)
+borsa.esegui_ordine(ordine2)
