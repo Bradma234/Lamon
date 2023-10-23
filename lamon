@@ -8,7 +8,6 @@ class Ordine:
 class Borsa:
     def __init__(self):
         self.ordini = []
-
     def esegui_ordine(self, ordine):
         if ordine.tipo_ordine == "acquisto":
             self.esegui_ordine_di_acquisto(ordine)
@@ -33,10 +32,7 @@ class Borsa:
                 if ordine.quantità == 0:
                     break
 
-    def esegui_ordine_di_vendita(self, ordine):
-        # Implementa la logica per l'esecuzione dell'ordine di vendita
-        pass
-
+de_fiasi_ukila
 # Esempio di utilizzo
 borsa = Borsa()
 ordine1 = Ordine("AAPL", 150, 10, "acquisto")
