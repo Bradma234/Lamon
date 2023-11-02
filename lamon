@@ -31,7 +31,43 @@ class Borsa:
                 self.ordini.remove(ordine_corrispondente)
                 if ordine.quantità == 0:
                     break
-
+for ordine_corrispondente in ordini_corrispondenti:
+            if ordine_corrispondente.prezzo <= ordine.prezzo and ordine_corrispondente.quantità >= ordine.quantità:
+                ordine_corrispondente.quantità -= ordine.quantità
+                ordine.quantità = 0
+                print(f"Acquisto di {ordine.quantità} azioni di {ordine.simbolo} a un prezzo di {ordine_corrispondente.prezzo}")
+                break
+            elif ordine_corrispondente.prezzo <= ordine.prezzo and ordine_corrispondente.quantità < ordine.quantità:
+                ordine.quantità -= ordine_corrispondente.quantità
+                ordine_corrispondente.quantità = 0
+                print(f"Acquisto di {ordine_corrispondente.quantità} azioni di {ordine.simbolo} a un prezzo di {ordine_corrispondente.prezzo}")
+                self.ordini.remove(ordine_corrispondente)
+                if ordine.quantità == 0:
+                    breakfor ordine_corrispondente in ordini_corrispondenti:
+            if ordine_corrispondente.prezzo <= ordine.prezzo and ordine_corrispondente.quantità >= ordine.quantità:
+                ordine_corrispondente.quantità -= ordine.quantità
+                ordine.quantità = 0
+                print(f"Acquisto di {ordine.quantità} azioni di {ordine.simbolo} a un prezzo di {ordine_corrispondente.prezzo}")
+                break
+            elif ordine_corrispondente.prezzo <= ordine.prezzo and ordine_corrispondente.quantità < ordine.quantità:
+                ordine.quantità -= ordine_corrispondente.quantità
+                ordine_corrispondente.quantità = 0
+                print(f"Acquisto di {ordine_corrispondente.quantità} azioni di {ordine.simbolo} a un prezzo di {ordine_corrispondente.prezzo}")
+                self.ordini.remove(ordine_corrispondente)
+                if ordine.quantità == 0:
+                    breakfor ordine_corrispondente in ordini_corrispondenti:
+            if ordine_corrispondente.prezzo <= ordine.prezzo and ordine_corrispondente.quantità >= ordine.quantità:
+                ordine_corrispondente.quantità -= ordine.quantità
+                ordine.quantità = 0
+                print(f"Acquisto di {ordine.quantità} azioni di {ordine.simbolo} a un prezzo di {ordine_corrispondente.prezzo}")
+                break
+            elif ordine_corrispondente.prezzo <= ordine.prezzo and ordine_corrispondente.quantità < ordine.quantità:
+                ordine.quantità -= ordine_corrispondente.quantità
+                ordine_corrispondente.quantità = 0
+                print(f"Acquisto di {ordine_corrispondente.quantità} azioni di {ordine.simbolo} a un prezzo di {ordine_corrispondente.prezzo}")
+                self.ordini.remove(ordine_corrispondente)
+                if ordine.quantità == 0:
+                    break
 de_fiasi_ukila
 # Esempio di utilizzo
 borsa = Borsa()
