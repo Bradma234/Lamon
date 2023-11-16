@@ -5,16 +5,7 @@ class Ordine:
         self.quantità = quantità
         self.tipo_ordine = tipo_ordine
 
-class Borsa:
-    def __init__(self):
-        self.ordini = []
-    def esegui_ordine(self, ordine):
-        if ordine.tipo_ordine == "acquisto":
-            self.esegui_ordine_di_acquisto(ordine)
-        elif ordine.tipo_ordine == "vendita":
-            self.esegui_ordine_di_vendita(ordine)
-
-    def esegui_ordine_di_acquisto(self, ordine):
+ef esegui_ordine_di_acquisto(self, ordine):
         ordini_corrispondenti = [o for o in self.ordini if o.simbolo == ordine.simbolo and o.tipo_ordine == "vendita"]
         ordini_corrispondenti.sort(key=lambda o: o.prezzo)
 
