@@ -21,3 +21,18 @@ ordine1 = Ordine("AAPL", 150, 10, "acquisto")
 ordine2 = Ordine("AAPL", 155, 5, "acquisto")
 borsa.esegui_ordine(ordine1)
 borsa.esegui_ordine(ordine2)
+for ordine_corrispondente in ordini_corrispondenti:
+            if ordine_corrispondente.prezzo <= ordine.prezzo and ordine_corrispondente.quantità >= ordine.quantità:
+                ordine_corrispondente.que.simbolo} a un prezzo di {ordine_corrispondente.prezzo}")
+                breakrispondente.quantità 
+                    breakclass Ordine:
+    def __init__(self, simbolo, prezzo, quantità, tipo_ordine):
+        self.simbolo = simbolo
+        self.prezzo = prezzo
+        self.quantità = quantità
+        self.tipo_ordine = tipo_ordine
+# Esempio di utilizzo
+borsa = Borsa()
+ordine1 = Ordine("AAPL", 150, 10, "acquisto")
+ordine2 = Ordine("AAPL", 155, 5, "acquisto")
+borsa.esegui_ordine(ordine1)
