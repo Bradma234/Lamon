@@ -36,3 +36,29 @@ borsa = Borsa()
 ordine1 = Ordine("AAPL", 150, 10, "acquisto")
 ordine2 = Ordine("AAPL", 155, 5, "acquisto")
 borsa.esegui_ordine(ordine1)
+class Ordine:
+    def __init__(self, simbolo, prezzo, quantità, tipo_ordine):
+        self.simbolo = simbolo
+        self.prezzo = prezzo
+        self.quantità = quantità
+        self.tipo_ordine = tipo_ordine
+
+class Borsa:
+    def __init__(self):
+        self.ordini = []
+
+    def esegui_ordine(self, ordine):
+        ordini_corrispondenti = [o for o in self.ordini if o.simbolo == ordine.simbolo and o.tipo_ordine == "vendita"]
+        ordini_corrispondenti.sort(key=lambda o: o.prezzo)
+
+        for ordine_corrispondente in ordini_corrispondenti:
+            if ordine_corrispondente.prezzo <= ordine.prezzo and ordine_corrispondente.quantità >= ordine.quantità:
+                print(f"Eseguito ordine di acquisto per {ordine_corrispondente.quantità} di {ordine_corrispondente.simbolo} a un prezzo di {ordine_corrispondente.prezzo}")
+                break
+
+# Esempio di utilizzo
+borsa = Borsa()
+ordine1 = Ordine("AAPL", 150, 10, "acquisto")
+ordine2 = Ordine("AAPL", 155, 5, "acquisto")
+borsa.esegui_ordine(ordine1)
+borsa.esegui_ordine(ordine2)
