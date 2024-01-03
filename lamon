@@ -38,7 +38,5 @@ ordine2 = Ordine("AAPL", 155, 5, "acquisto")
 borsa.esegui_ordine(ordine1)
 class Ordine:
     def __init__(self, simbolo, prezzo, quantità, tipo_ordine):
-        self.simbolo = simbolo
-        self.prezzo = prezzo
-        self.quantità = quantità
-        self.tipo_ordine = tipo_ordine
+        }
+}
